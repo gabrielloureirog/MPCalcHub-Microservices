@@ -6,6 +6,26 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9090']
   
-  - job_name: 'docker'
+  - job_name: 'Docker cAdvisor'
     static_configs:
       - targets: ['cadvisor:8080']
+
+  - job_name: 'Register Producer'
+    static_configs:
+      - targets: ['host.docker.internal:5022']
+
+  - job_name: 'Updater Producer'
+    static_configs:
+      - targets: ['host.docker.internal:5024']
+
+  - job_name: 'Deleter Producer'
+    static_configs:
+      - targets: ['host.docker.internal:5026']
+
+  - job_name: 'Crud Consumer'
+    static_configs:
+      - targets: ['host.docker.internal:5056']
+
+  - job_name: 'Deleter Consumer'
+    static_configs:
+      - targets: ['host.docker.internal:5057']
