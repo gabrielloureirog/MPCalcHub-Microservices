@@ -82,6 +82,21 @@ services:
       mp-micro-services:
         ipv4_address: 172.30.0.7
 
+  logger:
+    build:
+      context: ./MPLogger
+      dockerfile: Dockerfile
+    ports:
+      - "5020:5020"
+    environment:
+      - DOTNET_ENVIRONMENT=Docker
+    depends_on:
+      - rabbitmq
+      - mongo
+    networks:
+      mp-micro-services:
+        ipv4_address: 172.30.0.8
+
   kong-database:
     build:
       context: ./Kong-Konga-DockerCompose/
