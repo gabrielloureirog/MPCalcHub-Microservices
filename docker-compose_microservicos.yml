@@ -1,0 +1,65 @@
+services:
+  mpcalc-register-producer:
+    build:
+      context: ./MPCalcRegisterProducer
+      dockerfile: Dockerfile
+    ports:
+      - "5022:5022"
+    environment:
+      - DOTNET_ENVIRONMENT=Docker
+    networks:
+      mp-micro-services:
+        ipv4_address: 172.30.0.10
+  
+  mpcalc-delete-consumer:
+    build:
+      context: ./MPCalcHub-Delete
+      dockerfile: Dockerfile
+    ports:
+      - "5057:5057"
+    environment:
+      - DOTNET_ENVIRONMENT=Docker
+    networks:
+      mp-micro-services:
+        ipv4_address: 172.30.0.11
+
+  mpcalc-crud-consumer:
+    build:
+      context: ./MPCalcHub-Personal
+      dockerfile: Dockerfile
+    ports:
+      - "5056:5056"
+    environment:
+      - DOTNET_ENVIRONMENT=Docker
+    networks:
+      mp-micro-services:
+        ipv4_address: 172.30.0.12
+
+  mpcalc-updater-producer:
+    build:
+      context: ./MPCalcUpdaterProducer
+      dockerfile: Dockerfile
+    ports:
+      - "5024:5024"
+    environment:
+      - DOTNET_ENVIRONMENT=Docker
+    networks:
+      mp-micro-services:
+        ipv4_address: 172.30.0.13
+
+  mpcalc-deleter-producer:
+    build:
+      context: ./MPCalcDeleterProducer
+      dockerfile: Dockerfile
+    ports:
+      - "5026:5026"
+    environment:
+      - DOTNET_ENVIRONMENT=Docker
+    networks:
+      mp-micro-services:
+        ipv4_address: 172.30.0.14
+
+networks:
+  mp-micro-services:
+    external:
+      name: mpcalchub-microservices_mp-micro-services

@@ -1,0 +1,21 @@
+Link Vimeo: https://vimeo.com/1069435511
+Link Youtube: https://youtu.be/A3hXv7zj4DM
+
+GitHub: 
+
+https://github.com/gabrielloureirog/MPCalcHub-Personal
+https://github.com/gabrielloureirog/MPCalcHub-Delete
+https://github.com/gabrielloureirog/MPAzureFunctions
+https://github.com/FiapPosGrupo13/MPCalcRegisterProducer
+https://github.com/FiapPosGrupo13/MPCalcDeleterProducer
+https://github.com/FiapPosGrupo13/MPCalcUpdaterProducer
+
+
+
+https://github.com/gabrielloureirog/MPCalcHub-Microservices --> Aqui possui algumas configurações e projetos que utilizei para subir tudo no Docker.
+Também possui 2 arquivos de docker-compose.
+
+docker-compose.yml --> Configurações para subir todos os micro serviços auxiliares.
+docker-compose_microservicos.yml --> Configurações para subir todos os micro serviços principais
+
+
