@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mpcalc-hub-delete
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mpcalc-hub-delete
+  template:
+    metadata:
+      labels:
+        app: mpcalc-hub-delete
+    spec:
+      containers:
+      - name: mpcalc-hub-delete
+        image: mpcalc-hub-delete:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+        envFrom:
+        - configMapRef:
+            name: mpcalc-config

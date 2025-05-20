@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mpcalc-hub-personal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mpcalc-hub-personal
+  template:
+    metadata:
+      labels:
+        app: mpcalc-hub-personal
+    spec:
+      containers:
+      - name: mpcalc-hub-personal
+        image: mpcalc-hub-personal:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+        envFrom:
+        - configMapRef:
+            name: mpcalc-config

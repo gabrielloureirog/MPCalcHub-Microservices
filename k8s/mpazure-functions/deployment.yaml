@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mpazure-functions
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mpazure-functions
+  template:
+    metadata:
+      labels:
+        app: mpazure-functions
+    spec:
+      containers:
+      - name: mpazure-functions
+        image: mpazure-functions:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80

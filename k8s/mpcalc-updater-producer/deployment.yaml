@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mpcalc-updater-producer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mpcalc-updater-producer
+  template:
+    metadata:
+      labels:
+        app: mpcalc-updater-producer
+    spec:
+      containers:
+      - name: mpcalc-updater-producer
+        image: mpcalc-updater-producer:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+        envFrom:
+        - configMapRef:
+            name: mpcalc-config
